@@ -261,8 +261,8 @@ class GROreader():
 
             yCoord.extend(groObject.yCoord)
 
-            zCoord.extend([(num + addToZcoord + buffer) for num in groObject.zCoord])
-            addToZcoord = max(zCoord)
+            zCoord.extend([(num + addToZcoord) for num in groObject.zCoord])
+            addToZcoord = max(zCoord) + buffer # adding buffer to avoid possible overlap when puting next gto system in z axis
 
             if groObject.xDim > xDim:
                 xDim = groObject.xDim
